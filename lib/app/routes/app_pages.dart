@@ -19,11 +19,6 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.HOME,
-      page: () => HomeView(),
-      binding: HomeBinding(),
-    ),
-    GetPage(
       name: _Paths.ADDNOTES,
       page: () => AddNotesScreen(),
       binding: HomeBinding(),
