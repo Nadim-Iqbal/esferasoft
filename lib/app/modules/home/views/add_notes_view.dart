@@ -327,7 +327,11 @@ class AddNotesScreen extends GetView<AddNotesController> {
                                       false) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
-                                          content: Text('Processing Data')),
+                                          content: Text(
+                                        'Notes saved successfully',
+                                        style: TextStyle(
+                                            color: Colors.yellowAccent),
+                                      )),
                                     );
                                     print(
                                         ":::::::::::::::${controller.selectedIndex}");

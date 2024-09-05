@@ -25,20 +25,16 @@ class HomeController extends GetxController {
     List<Map<String, String>> jsonList = await getHomeNotesList();
     homeNotesList.value = jsonList;
     homeNotesList.refresh();
-    print("homeNotesList:::::::::::::::$homeNotesList");
   }
 
   Future<List<Map<String, String>>> getHomeNotesList() async {
     final prefs = await SharedPreferences.getInstance();
-    // Retrieve the JSON string from SharedPreferences
     String? jsonString = prefs.getString('home_list_key');
     if (jsonString != null) {
-      // Decode the JSON string to a list of maps
       List<dynamic> jsonList = jsonDecode(jsonString);
       print(jsonList);
       return jsonList.map((item) => Map<String, String>.from(item)).toList();
     } else {
-      // Return an empty list if no data is found
       return [];
     }
   }
@@ -47,20 +43,17 @@ class HomeController extends GetxController {
     List<Map<String, String>> jsonList = await getWorkNotesList();
     workNotesList.value = jsonList;
     workNotesList.refresh();
-    print("workNotesList:::::::::::::::$workNotesList");
   }
 
   Future<List<Map<String, String>>> getWorkNotesList() async {
     final prefs = await SharedPreferences.getInstance();
-    // Retrieve the JSON string from SharedPreferences
+
     String? jsonString = prefs.getString('work_list_key');
     if (jsonString != null) {
-      // Decode the JSON string to a list of maps
       List<dynamic> jsonList = jsonDecode(jsonString);
       print(jsonList);
       return jsonList.map((item) => Map<String, String>.from(item)).toList();
     } else {
-      // Return an empty list if no data is found
       return [];
     }
   }
@@ -69,20 +62,17 @@ class HomeController extends GetxController {
     List<Map<String, String>> jsonList = await getAllNotesList();
     allNotesList.value = jsonList;
     allNotesList.refresh();
-    print(":::::::::::::::$allNotesList");
   }
 
   Future<List<Map<String, String>>> getAllNotesList() async {
     final prefs = await SharedPreferences.getInstance();
-    // Retrieve the JSON string from SharedPreferences
+
     String? jsonString = prefs.getString('all_list_key');
     if (jsonString != null) {
-      // Decode the JSON string to a list of maps
       List<dynamic> jsonList = jsonDecode(jsonString);
       print(jsonList);
       return jsonList.map((item) => Map<String, String>.from(item)).toList();
     } else {
-      // Return an empty list if no data is found
       return [];
     }
   }
@@ -98,6 +88,4 @@ class HomeController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }
